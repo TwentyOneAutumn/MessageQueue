@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.message-queue</groupId>
+    <artifactId>message-queue</artifactId>
+    <version>1.0</version>
+    <name>message-queue</name>
+    <description>消息队列聚合模块</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>activemq</module>
+        <module>rabbitmq</module>
+        <module>kafka</module>
+    </modules>
+
+    <properties>
+        <SpringBoot.version>2.6.3</SpringBoot.version>
+        <SpringCloud.version>2021.0.1.0</SpringCloud.version>
+        <SpringCloudStarter.version>3.1.1</SpringCloudStarter.version>
+        <Lombok.version>1.18.22</Lombok.version>
+        <Hutool.version>5.8.8</Hutool.version>
+        <Jakarta.version>2.0.1</Jakarta.version>
+        <FastJson.version>2.0.1</FastJson.version>
+        <Validation.version>2.0.2</Validation.version>
+        <Validator.version>6.2.0.Final</Validator.version>
+        <ApacheCommons.version>1.15</ApacheCommons.version>
+        <JWT.version>0.11.2</JWT.version>
+        <Slf4j.version>2.0.12</Slf4j.version>
+        <Log4j2.version>2.19.0</Log4j2.version>
+        <Log4jSlf4j2Impl.version>2.19.0</Log4jSlf4j2Impl.version>
+        <OrgJson.version>20231013</OrgJson.version>
+        <Jackson.version>2.16.0</Jackson.version>
+        <Okhttp.version>4.12.0</Okhttp.version>
+        <MybatisPlus.version>3.5.2</MybatisPlus.version>
+        <PageHelper.version>1.4.6</PageHelper.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot 父依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${SpringBoot.version}</version>
+                <exclusions>
+                    <!-- 移除自带的logback -->
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- SpringBoot 版本依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${SpringBoot.version}</version>
+                <type>pom</type>
+                <scope>compile</scope>
+            </dependency>
+
+            <!-- SpringCloud 父依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${SpringCloud.version}</version>
+                <type>pom</type>
+                <scope>compile</scope>
+            </dependency>
+
+            <!-- SpringCloud Alibaba 父依赖 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${SpringCloud.version}</version>
+                <type>pom</type>
+                <scope>compile</scope>
+            </dependency>
+
+            <!-- springCloud 父依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter</artifactId>
+                <version>${SpringCloudStarter.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <!-- SpringCloud Alibaba 父依赖 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-starters</artifactId>
+                <version>${SpringCloud.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <!-- SpringBoot Web 依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${SpringBoot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${SpringBoot.version}</version>
+            </dependency>
+
+            <!-- SpringBoot Validation 参数校验 依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+                <version>${SpringBoot.version}</version>
+            </dependency>
+
+            <!-- SpringBoot MyBatisPlus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${MybatisPlus.version}</version>
+            </dependency>
+
+            <!-- PageHelper分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${PageHelper.version}</version>
+            </dependency>
+
+            <!-- Lombok 依赖 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${Lombok.version}</version>
+            </dependency>
+
+            <!-- Hutool 工具包 依赖 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${Hutool.version}</version>
+            </dependency>
+
+            <!-- jakarta 依赖 -->
+            <dependency>
+                <groupId>jakarta.json</groupId>
+                <artifactId>jakarta.json-api</artifactId>
+                <version>${Jakarta.version}</version>
+            </dependency>
+
+            <!-- fastjson 依赖 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${FastJson.version}</version>
+            </dependency>
+
+            <!-- jackson 依赖 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${Jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${SpringBoot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${Jackson.version}</version>
+            </dependency>
+
+            <!-- Java Validation -->
+            <dependency>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <version>${Validation.version}</version>
+            </dependency>
+
+            <!-- 校验 -->
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${Validator.version}</version>
+            </dependency>
+
+            <!-- Apache Commons -->
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${ApacheCommons.version}</version>
+            </dependency>
+
+            <!-- slf4j依赖-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${Slf4j.version}</version>
+            </dependency>
+
+            <!-- log4j2和slf4j桥接依赖-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j2-impl</artifactId>
+                <version>${Log4jSlf4j2Impl.version}</version>
+            </dependency>
+
+            <!-- log4j2依赖-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${Log4j2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${Log4j2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-bom</artifactId>
+                <version>${Log4j2.version}</version>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-stream-kafka</artifactId>
+                <version>${SpringCloudStarter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>${OrgJson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${Okhttp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-activemq</artifactId>
+                <version>${SpringBoot.version}</version>
+            </dependency>
+
+            <!-- Spring AMQP 依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-amqp</artifactId>
+                <version>${SpringBoot.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Lombok 依赖 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- Hutool 工具包 依赖 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+
+        <!-- jakarta 依赖 -->
+        <dependency>
+            <groupId>jakarta.json</groupId>
+            <artifactId>jakarta.json-api</artifactId>
+        </dependency>
+
+        <!-- fastjson 依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <!-- jackson 依赖 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+
+        <!-- Apache Commons -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
